@@ -1,16 +1,16 @@
-var mousevent = "empty";
+var mouseEvent = "empty";
 
 var last_position_of_x,last_position_of_y ;
 
-canvas= document.getElementById('MYfirstcanvas');
-
-ctx=canvas.getContext("2d");
-
+var canvas= document.getElementById('MYfirstcanvas');
+if(canvas !=null){
+    var ctx=canvas.getContext("2d");
+}
 color = "black";
 
 width_of_line = 1;
 
-canvas.addEventlistener("mousedown",my_mousedown);
+canvas.addEventListener("mousedown",my_mousedown);
 
 function my_mousedown(e)
 {
@@ -28,7 +28,7 @@ function my_mouseleave(e)
     mouseEvent = "mouseleave";
 }
 
-canvas.addEventlistener("mouseup", my_mouseup);
+canvas.addEventListener("mouseup", my_mouseup);
 function my_mouseup(e)
 {
     mouseEvent = "mouseUP";
@@ -37,8 +37,8 @@ function my_mouseup(e)
 canvas.addEventListener("mousemove", my_mousemove);
 function my_mousemove(e)
 {
-    current_position_of_mouse_x = e.clientX - canas.offsetLeft;
-    current_position_of_mouse_y = e.clientY - canas.offsetTop;
+    current_position_of_mouse_x = e.clientX - canvas.offsetLeft;
+    current_position_of_mouse_y = e.clientY - canvas.offsetTop;
 
     if (mouseEvent == "mouseDown") {
         ctx.beginPath();
